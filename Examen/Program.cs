@@ -1,4 +1,5 @@
 using Examen.Data;
+using Helpers.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,9 @@ builder.Services.AddDbContext<ExamenContext>(options => options.UseSqlServer(bui
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddRepositories();
+builder.Services.AddServices();
 
 var app = builder.Build();
 
@@ -30,6 +34,7 @@ if (app.Environment.IsDevelopment())
         //options.RoutePrefix = string.Empty;
     });
 }
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
