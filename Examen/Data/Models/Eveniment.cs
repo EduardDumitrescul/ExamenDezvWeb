@@ -9,6 +9,6 @@ namespace Examen.Data.Models
     {
         public string denumire {  get; set; }
 
-        public ICollection<Participare> Participari { get; set; }
+        public ICollection<Participare> Participari { get; set; } = [];
     }
 }

@@ -21,6 +21,7 @@ namespace Examen.Services
         public async Task Create(Eveniment eveniment)
         {
             eveniment.Id = Guid.NewGuid();
+            eveniment.Participari = [];
             await _evenimentRepository.CreateAsync(eveniment);
             await _evenimentRepository.SaveAsync();
         }
