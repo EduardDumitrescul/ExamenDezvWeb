@@ -20,6 +20,7 @@ namespace Examen.Services
 
         public async Task Create(Participant participant)
         {
+            participant.Id = Guid.NewGuid();
             await _participntRepository.CreateAsync(participant);
             await _participntRepository.SaveAsync();
         }

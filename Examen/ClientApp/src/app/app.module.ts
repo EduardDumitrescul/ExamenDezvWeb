@@ -11,6 +11,8 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { EvenimenteComponent } from './evenimente/evenimente.component';
 import { EditEvenimenteComponent } from './edit-evenimente/edit-evenimente.component';
+import { ParticipantiComponent } from './participanti/participanti.component';
+import { EditParticipantiComponent } from './edit-participanti/edit-participanti.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { EditEvenimenteComponent } from './edit-evenimente/edit-evenimente.compo
     CounterComponent,
     FetchDataComponent,
     EvenimenteComponent,
-    EditEvenimenteComponent
+    EditEvenimenteComponent,
+    ParticipantiComponent,
+    EditParticipantiComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +36,9 @@ import { EditEvenimenteComponent } from './edit-evenimente/edit-evenimente.compo
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'evenimente', component: EvenimenteComponent },
+      { path: 'participanti', component: ParticipantiComponent },
       { path: 'evenimente/edit', component: EditEvenimenteComponent },
+      { path: 'participanti/edit', component: EditParticipantiComponent },
     ])
   ],
   providers: [],

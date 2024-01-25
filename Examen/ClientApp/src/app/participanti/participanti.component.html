@@ -1,0 +1,20 @@
+<h1 id="tableLabel">Participanti</h1>
+
+<p *ngIf="!participanti?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="participanti.length">
+  <thead>
+    <tr>
+      <th>Nume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let participant of participanti">
+      <td>{{ participant.nume }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button [routerLink]="['/participanti/edit']">
+  Adauga Participant
+</button>

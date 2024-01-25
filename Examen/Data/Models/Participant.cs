@@ -8,6 +8,6 @@ namespace Examen.Data.Models
     {
         public string nume { get; set; }
 
-        public ICollection<Participare> Participari { get; set; }
+        public ICollection<Participare> Participari { get; set; } = [];
     }
 }
