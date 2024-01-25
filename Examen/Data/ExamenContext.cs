@@ -7,7 +7,9 @@ namespace Examen.Data
     {
         public ExamenContext(DbContextOptions<ExamenContext> options) : base(options) { }
 
-        public DbSet<TestModel> TestModels {  get; set; }
+        public DbSet<Eveniment> Evenimente {  get; set; }
+        public DbSet<Participant> Participanti {  get; set; }
+        public DbSet<Participare> Participari {  get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

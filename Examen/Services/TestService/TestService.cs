@@ -13,12 +13,12 @@ public class TestService : ITestService
         _testRepository = testRepository;
     }
 
-    public async Task<List<TestModel>> GetAll()
+    public async Task<List<Eveniment>> GetAll()
     {
         return await _testRepository.GetAllAsync();
     }
 
-    public async Task Create(TestModel test)
+    public async Task Create(Eveniment test)
     {
         await _testRepository.CreateAsync(test);
         await _testRepository.SaveAsync();
@@ -30,7 +30,7 @@ public class TestService : ITestService
         _testRepository.SaveAsync();
     }
 
-    public async Task Update(TestModel test)
+    public async Task Update(Eveniment test)
     {
         _testRepository.Update(test);
         await _testRepository.SaveAsync();

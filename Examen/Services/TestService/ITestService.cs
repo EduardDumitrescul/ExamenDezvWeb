@@ -6,8 +6,8 @@ namespace Services.TestService;
 
 public interface ITestService
 {
-    Task<List<TestModel>> GetAll();
-    Task Create(TestModel test);
+    Task<List<Eveniment>> GetAll();
+    Task Create(Eveniment test);
     void Delete(Guid id);
-    Task Update(TestModel test);
+    Task Update(Eveniment test);
 }

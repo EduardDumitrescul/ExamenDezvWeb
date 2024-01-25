@@ -1,0 +1,9 @@
+<div>
+  <p>Adauga Eveniment</p>
+  <form [formGroup]="evenimentForm">
+    <input formControlName="denumire" placeholder="Denumire" type="text">
+  </form>
+  <div>
+    <button (click)="create()"> Adauga</button>
+  </div>
+</div>

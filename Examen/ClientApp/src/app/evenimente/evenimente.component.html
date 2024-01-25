@@ -1,0 +1,20 @@
+<h1 id="tableLabel">Evenimente</h1>
+
+<p *ngIf="!evenimente?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="evenimente.length">
+  <thead>
+    <tr>
+      <th>Denumire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let eveniment of evenimente">
+      <td>{{ eveniment.denumire }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button [routerLink]="['/evenimente/edit']">
+  Adauga Eveniment
+</button>

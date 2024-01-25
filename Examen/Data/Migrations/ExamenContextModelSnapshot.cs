@@ -22,19 +22,82 @@ namespace Examen.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Examen.Data.Models.TestModel", b =>
+            modelBuilder.Entity("Examen.Data.Models.Eveniment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Data")
+                    b.Property<string>("denumire")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TestModels");
+                    b.ToTable("Evenimente");
+                });
+
+            modelBuilder.Entity("Examen.Data.Models.Participant", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("nume")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Participanti");
+                });
+
+            modelBuilder.Entity("Examen.Data.Models.Participare", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("EvenimentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdEveniment")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdParticipant")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ParticipantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EvenimentId");
+
+                    b.HasIndex("ParticipantId");
+
+                    b.ToTable("Participari");
+                });
+
+            modelBuilder.Entity("Examen.Data.Models.Participare", b =>
+                {
+                    b.HasOne("Examen.Data.Models.Eveniment", null)
+                        .WithMany("Participari")
+                        .HasForeignKey("EvenimentId");
+
+                    b.HasOne("Examen.Data.Models.Participant", null)
+                        .WithMany("Participari")
+                        .HasForeignKey("ParticipantId");
+                });
+
+            modelBuilder.Entity("Examen.Data.Models.Eveniment", b =>
+                {
+                    b.Navigation("Participari");
+                });
+
+            modelBuilder.Entity("Examen.Data.Models.Participant", b =>
+                {
+                    b.Navigation("Participari");
                 });
 #pragma warning restore 612, 618
         }
