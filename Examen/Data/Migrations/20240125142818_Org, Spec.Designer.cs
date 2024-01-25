@@ -4,6 +4,7 @@ using Examen.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Examen.Data.Migrations
 {
     [DbContext(typeof(ExamenContext))]
-    partial class ExamenContextModelSnapshot : ModelSnapshot
+    [Migration("20240125142818_Org, Spec")]
+    partial class OrgSpec
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,8 +53,6 @@ namespace Examen.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Participanti");
-
-                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Examen.Data.Models.Participare", b =>
@@ -81,20 +82,6 @@ namespace Examen.Data.Migrations
                     b.ToTable("Participari");
                 });
 
-            modelBuilder.Entity("Examen.Data.Models.Organizator", b =>
-                {
-                    b.HasBaseType("Examen.Data.Models.Participant");
-
-                    b.ToTable("Organizatori");
-                });
-
-            modelBuilder.Entity("Examen.Data.Models.Spectator", b =>
-                {
-                    b.HasBaseType("Examen.Data.Models.Participant");
-
-                    b.ToTable("Spectatori");
-                });
-
             modelBuilder.Entity("Examen.Data.Models.Participare", b =>
                 {
                     b.HasOne("Examen.Data.Models.Eveniment", null)
@@ -104,24 +91,6 @@ namespace Examen.Data.Migrations
                     b.HasOne("Examen.Data.Models.Participant", null)
                         .WithMany("Participari")
                         .HasForeignKey("ParticipantId");
-                });
-
-            modelBuilder.Entity("Examen.Data.Models.Organizator", b =>
-                {
-                    b.HasOne("Examen.Data.Models.Participant", null)
-                        .WithOne()
-                        .HasForeignKey("Examen.Data.Models.Organizator", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Examen.Data.Models.Spectator", b =>
-                {
-                    b.HasOne("Examen.Data.Models.Participant", null)
-                        .WithOne()
-                        .HasForeignKey("Examen.Data.Models.Spectator", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Examen.Data.Models.Eveniment", b =>

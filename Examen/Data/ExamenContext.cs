@@ -10,6 +10,8 @@ namespace Examen.Data
         public DbSet<Eveniment> Evenimente {  get; set; }
         public DbSet<Participant> Participanti {  get; set; }
         public DbSet<Participare> Participari {  get; set; }
+        public DbSet<Organizator> Organizatori {  get; set; }
+        public DbSet<Spectator> Spectatori {  get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
